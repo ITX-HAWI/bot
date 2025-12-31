@@ -1,13 +1,11 @@
 {
   "name": "prompt-generator",
   "version": "1.0.0",
-  "description": "Generate AI-enhanced cinematic prompts for a list of fruits",
+  "description": "Template-based cinematic prompt generator for fruits",
   "main": "generate_prompts.js",
   "type": "module",
   "scripts": {
     "start": "node generate_prompts.js"
   },
-  "dependencies": {
-    "openai": "^4.10.0"
-  }
+  "dependencies": {}
 }
