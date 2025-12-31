@@ -1,7 +1,7 @@
 name: Generate AI-Enhanced Fruit Prompts
 
 on:
-  workflow_dispatch: # Manual trigger
+  workflow_dispatch: # manual trigger
   schedule:
     - cron: '0 12 * * *' # optional daily run
 
@@ -26,7 +26,7 @@ jobs:
         run: node generate_prompts.js
 
       - name: Upload generated prompts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4   # updated from v3 to v4
         with:
           name: prompts
           path: generated_prompts.txt
