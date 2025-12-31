@@ -1,24 +1,28 @@
-name: Generate Fruit Prompts
+name: Generate AI-Enhanced Fruit Prompts
+
 on:
   workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: '0 12 * * *' # optional daily run
 
 jobs:
   generate:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run prompt generator
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: node generate_prompts.js
 
       - name: Upload generated prompts
